@@ -91,7 +91,7 @@ function Auth() {
                             <div className="col-12">
                                 {/* Email */}
                                 <Input 
-                                    placeholder="user@gmail.com" 
+                                    placeholder="testUser@gmail.com" 
                                     {...loginForm.register('username')}
                                 />
                             </div>
