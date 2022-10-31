@@ -6,7 +6,7 @@ import Page404 from "./pages/404";
 import Profile from "./pages/account";
 
 const Home = lazy(() => import('./pages/index'))
-const Product = lazy(() => import('./pages/product'))
+const Product = lazy(() => import('./pages/Product'))
 const Auth = lazy(() => import('./pages/auth'))
 const ProductDetail = lazy(() => import('./pages/product/[slug]'))
 const MyOrder = lazy(() => import('./pages/account/order'))
