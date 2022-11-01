@@ -10,9 +10,14 @@ import { Link } from 'react-router-dom';
 import { path } from '../config/path';
 import { useTranslate } from '../core/components/TranslateProvide';
 import Select from './Select';
+import { useState } from 'react';
+import { cn } from '../core/utils';
 
 function Header() {
 
+  const [showLang, setShowLang] = useState(false)
+  const [openMenu, setOpenMenu] = useState(false)
+  const [openMenu1, setOpenMenu1] = useState(false)
   const dispatch = useDispatch()
   const { cart } = useCart()
 
@@ -61,11 +66,14 @@ function Header() {
             <i className="fe fe-truck mr-2" /> <span className="heading-xxxs">Free shipping worldwide</span>
           </div>
           {/* Toggler */}
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#topbarCollapse" aria-controls="topbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button onClick={() => setOpenMenu1(!openMenu1)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#topbarCollapse" aria-controls="topbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
           {/* Collapse */}
-          <div className="collapse navbar-collapse" id="topbarCollapse">
+          <div className={cn('collapse navbar-collapse', {
+            'show': openMenu1
+          })}
+          id="topbarCollapse">
             {/* Nav */}
             <ul className="nav nav-divided navbar-nav mr-auto">
               <li className="nav-item dropdown">
@@ -95,9 +103,11 @@ function Header() {
                   <a className="dropdown-item" href="#!">EUR</a>
                 </div>
               </li>
-              <li className="nav-item">
+              <li className="nav-item dropdown" onClick={() => setShowLang(!showLang)}>
                 <Select
                   defaultValue={locale}
+                  showLang={showLang}
+                  setShowLang ={setShowLang }
                   options= {[
                     {value: 'en', label: 'English'},
                     {value: 'vi', label: 'Tiếng Việt'},
@@ -152,11 +162,13 @@ function Header() {
             Shopper.
           </Link>
           {/* Toggler */}
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <button onClick={() => setOpenMenu(!openMenu)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarCollapse">
+          <div className={cn('collapse navbar-collapse', {
+            'show': openMenu
+          })} id="navbarCollapse">
             <ul className="navbar-nav mx-auto">
               {ListMenu.map(item => (
                 <li key={item.name} className="nav-item">

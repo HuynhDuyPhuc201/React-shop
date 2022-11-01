@@ -9,7 +9,7 @@ function Home() {
     <div>
       {/* CATEGORIES */}
       <section>
-        <div className="row no-gutters d-block d-lg-flex flickity flickity-lg-none" data-flickity="{&quot;watchCSS&quot;: true}">
+        <div className="row no-gutters d-lg-flex flickity flickity-lg-none">
           {/* Item */}
           <div className="col-12 col-md-6 col-lg-4 d-flex flex-column bg-cover" style={{backgroundImage: 'url(/img/covers/cover-1.jpg)'}}>
             <div className="card bg-dark-5 bg-hover text-white text-center" style={{minHeight: '470px'}}>
