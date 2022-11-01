@@ -9,10 +9,13 @@ import { useCategory } from '../hooks/useCategory';
 import { Skeleton } from 'antd';
 import { useCategoryDetail } from '../hooks/useCategoryDetail';
 import Breadcrumb from '../components/Breadcrumb';
+import { cn } from '../core/utils';
+import { useState } from 'react';
 
 
 function shop() {
 
+    const [showCategory, setShowCategory] = useState(true)
     const [sort, setSort] = useSearch('sort', 'real_price.asc')
     const { catId } = useParams()
     const [searchParams] = useSearchParams()
@@ -47,13 +50,13 @@ function shop() {
                   {/* Filters */}
                   <form className="mb-10 mb-md-0">
                     <ul className="nav nav-vertical" id="filterNav">
-                      <li className="nav-item">
+                      <li className="nav-item" onClick={() => setShowCategory(!showCategory)}>
                         {/* Toggle */}
                         <a className="nav-link dropdown-toggle font-size-lg text-reset border-bottom mb-6" data-toggle="collapse" href="#categoryCollapse">
                           Category
                         </a>
                         {/* Collapse */}
-                        <div className="collapse show" id="categoryCollapse">
+                        <div className={cn('collapse', { 'show' : showCategory})} id="categoryCollapse">
                           <div className="form-group">
                             <ul className="list-styled mb-0" id="productsNav">
                               <li className="list-styled-item">
