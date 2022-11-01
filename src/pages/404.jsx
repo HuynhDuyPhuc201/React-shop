@@ -1,6 +1,7 @@
 
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Page404() {
   return (
@@ -18,9 +19,9 @@ function Page404() {
               We suggest that you return to home page.
             </p>
             {/* Button */}
-            <a className="btn btn-dark" href="index.html">
+            <Link className="btn btn-dark" to={'/'}>
               Go to Homepage
-            </a>
+            </Link>
           </div>
         </div>
       </div>
