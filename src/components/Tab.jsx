@@ -6,8 +6,8 @@ import { cn } from "../core/utils";
 const Context = createContext({})
 
 export const Tab = ({ children, defaultValue = 0, name = "tab"}) =>{
-    const _defaultValue = useSearch(name)
-    const [indexActive, setIndexActive] = useState(_defaultValue || defaultValue)
+    // const _defaultValue = useSearch(name)
+    const [indexActive, setIndexActive] = useState(defaultValue)
 
     return(
         <Context.Provider value={{indexActive, setIndexActive}}>
@@ -25,7 +25,7 @@ Tab.Title = ({ children, index }) =>{
         setIndexActive(index)
     }
     return (
-        <a onClick={onClick} className={cn('nav-link', {active: indexActive === index})}>
+        <a onClick={onClick} className={cn('nav-link', {'active': indexActive === index})}>
             {children}
         </a>
     )
