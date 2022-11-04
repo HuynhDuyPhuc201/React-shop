@@ -93,7 +93,7 @@ function shop() {
                               2019 Summer Collection
                             </h4>
                             {/* Button */}
-                            <a className="btn btn-link px-0 text-body" href="shop.html">
+                            <a className="btn btn-link px-0 text-body" href="!#">
                               View Collection <i className="fe fe-arrow-right ml-2" />
                             </a>
                           </div>
@@ -146,8 +146,8 @@ function shop() {
                     <div className="col-12 col-md-auto">
                       {/* Select */}
                       <select value={sort} onChange={(ev) => setSort(ev.currentTarget.value)} className="custom-select custom-select-xs">
-                        <option value="real_price.desc">Giả giảm dần</option>
-                        <option value="real_price.asc">Giả tăng dần</option>
+                        <option value="real_price.desc">Giá giảm dần</option>
+                        <option value="real_price.asc">Giá tăng dần</option>
                       </select>
                     </div>
                   </div>
